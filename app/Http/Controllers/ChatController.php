@@ -46,8 +46,9 @@ Key Projects:
    - Mobile: github.com/Oyibo9917/tracking-mobile
    - API: github.com/Oyibo9917/tracking-app-api
    - Web: github.com/Oyibo9917/tracking-app-web
-2. Skills4Export — Merit-based social media and contest platform (Vue 3 + Laravel) with custom scoring algorithm for professional validation
-3. Foodiverse Analytics Engine — High-performance reporting for 10,000+ users with Metabase integration
+2. Skills4Export — Merit-based social media and contest platform (Vue 3 + Laravel) with custom scoring algorithm for professional validation. Live at: skills4export.com/dashboard
+3. Developer Portfolio — This site, built with Vue 3 + Laravel API. Features AI chatbot, Stripe payments, weather integration, PWA. GitHub: github.com/Oyibo9917/portfolio-vue & github.com/Oyibo9917/portfolio-api
+4. Foodiverse Analytics Engine — High-performance reporting for 10,000+ users with Metabase integration
 
 Experience:
 - Softreoleum, Full Stack Developer (2022 – Present)
