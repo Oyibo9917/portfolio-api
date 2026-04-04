@@ -50,4 +50,12 @@ return [
         'key' => env('OPENAI_API_KEY'),
         'model' => env('OPENAI_MODEL', 'gpt-4o-mini'),
     ],
+
+    'kudisms' => [
+        'token'     => env('KUDISMS_TOKEN'),
+        'sender_id' => env('KUDISMS_SENDER_ID', 'PeaceDev'),
+        'gateway'   => env('KUDISMS_GATEWAY', '2'),
+        'url'       => 'https://my.kudisms.net/api/sms',
+        'my_phone'  => env('KUDISMS_MY_PHONE'), // your number for contact alerts
+    ],
 ];

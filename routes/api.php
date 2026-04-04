@@ -3,6 +3,7 @@
 use App\Http\Controllers\ChatController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\EnumsController;
+use App\Http\Controllers\SmsController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\weatherApiController;
 use Illuminate\Support\Facades\Route;
@@ -33,4 +34,6 @@ Route::get('/enums', [EnumsController::class, 'getAllEnums']);
 
 Route::post('/chat', [ChatController::class, 'chat']);
 Route::post('/contact', [ContactController::class, 'send']);
+Route::post('/sms/send', [SmsController::class, 'send']);
+Route::get('/sms/history', [SmsController::class, 'history']);
 
