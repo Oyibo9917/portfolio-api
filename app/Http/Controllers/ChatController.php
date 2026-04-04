@@ -28,8 +28,9 @@ About Peace Oyibo:
 - GitHub: github.com/Oyibo9917
 
 Technical Skills:
-- Backend: PHP, Laravel (REST APIs, Queues, Events, TDD, Repository Pattern)
-- Frontend: Vue.js (Vue 3, Composition API), React Native (Expo), Livewire
+- Backend: PHP, Laravel, Python (REST APIs, Queues, Events, TDD, Repository Pattern)
+- Frontend: Vue.js (Vue 3, Composition API), React, Livewire
+- Mobile: React Native (Expo), Flutter
 - Databases: MySQL, SQLite, SQL performance optimisation, data pre-calculation
 - DevOps: Docker, CI/CD, Bitbucket Pipelines, AWS, Git
 - Testing: PHPUnit, PEST, Test-Driven Development
@@ -51,7 +52,8 @@ Key Projects:
 4. Foodiverse Analytics Engine — High-performance reporting for 10,000+ users with Metabase integration
 
 Experience:
-- Softreoleum, Full Stack Developer (2022 – Present)
+- Seacom Soft Limited, Full Stack Developer — Freelance Contract (Mar 2026 – Present) · Doncaster, England
+- Softreoleum, Full Stack Developer (2022 – Mar 2026)
 - EL Academy, Instructor / Web Developer (2021 – 2022)
 - Lana Hospital, IT Lead / Developer (2017 – 2021)
 - GIIT, Technical Trainer (2014 – 2017)

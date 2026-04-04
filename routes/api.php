@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ChatController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\EnumsController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\weatherApiController;
@@ -31,4 +32,5 @@ Route::post('delete_products', [ProductController::class, 'deleteMultiple']);
 Route::get('/enums', [EnumsController::class, 'getAllEnums']);
 
 Route::post('/chat', [ChatController::class, 'chat']);
+Route::post('/contact', [ContactController::class, 'send']);
 
