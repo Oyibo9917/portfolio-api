@@ -31,9 +31,9 @@ class ProductValidator extends BaseValidator
             ],
             'image' => [
                 'nullable',
-                'string',
-                'max:255', // Maximum length of the file path or image name
-                'regex:/\.(jpg|jpeg|png|gif)$/i', // Validating image extension (jpg, jpeg, png, gif)
+                'image',
+                'mimes:jpeg,png,jpg,gif',
+                'max:2048',
             ],
             'price' => [
                 'required',

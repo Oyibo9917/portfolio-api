@@ -20,7 +20,7 @@ class ProductController extends Controller
     public function deleteMultiple(Request $request): JsonResponse
     {
         $ids = $request->input('data', []);
-        
+
         return $this->productService->deleteMultiple($ids);
     }
 

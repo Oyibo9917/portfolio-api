@@ -36,7 +36,7 @@ abstract class BaseRepository implements IRepository
     public function create(array $data): JsonResponse
     {
         $model = $this->getModel();
-        
+
         if (!empty($this->createRelation) && method_exists($model, $this->createRelation)) {
             $record = $model->{$this->createRelation}()->create($data);
         } else {
@@ -48,6 +48,16 @@ abstract class BaseRepository implements IRepository
 
     public function update(int $id, array $data): JsonResponse
     {
+        $authUserId = Auth::id();
+
+        if (!$authUserId) {
+            return ApiResponse::error("You must be logged in to update records.", null, 401);
+        }
+
+        if (!$this->canDelete($id, $authUserId)) {
+            return ApiResponse::error("You do not have permission to edit this product.", null, 403);
+        }
+
         $model = $this->getModel()->findOrFail($id);
 
         if (isset($data['image']) && $data['image']) {
@@ -64,8 +74,11 @@ abstract class BaseRepository implements IRepository
     {
         $model = $this->getModel()->findOrFail($id);
         $authUserId = Auth::id();
-        
-        // Check permissions
+
+        if (!$authUserId) {
+            return ApiResponse::error("You must be logged in to delete records.", null, 401);
+        }
+
         if (!$this->canDelete($id, $authUserId)) {
             return ApiResponse::error("You do not have permission to delete this record.", null, 403);
         }
@@ -82,8 +95,13 @@ abstract class BaseRepository implements IRepository
     public function deleteMultiple(array $ids): JsonResponse
     {
         $authUserId = Auth::id();
+
+        if (!$authUserId) {
+            return ApiResponse::error("You must be logged in to delete records.", null, 401);
+        }
+
         $permittedIds = $this->getPermittedIds($ids, $authUserId);
-        
+
         if (count($permittedIds) !== count($ids)) {
             return ApiResponse::error("You do not have permission to delete some of these records.", null, 403);
         }
@@ -230,7 +248,7 @@ abstract class BaseRepository implements IRepository
         }
 
         $user = User::where('uuid', $uuid)->first();
-        
+
         if (!$user) {
             throw new AuthenticationException('User not found');
         }

@@ -75,6 +75,14 @@ class ProductRepository extends BaseRepository
                 'average' => round($product->ratings_avg_rating ?? 0, 1),
                 'count' => $product->ratings_count ?? 0,
             ];
+            // is_owner: check if the current user has a 'created' log for this product
+            // We query directly to avoid the filtered eager-load giving false positives
+            $data['is_owner'] = Auth::check() && DB::table('activity_logs')
+                ->where('subject_type', Product::class)
+                ->where('subject_id', $product->id)
+                ->where('user_id', Auth::id())
+                ->where('action', 'created')
+                ->exists();
             return $data;
         });
 
@@ -124,7 +132,7 @@ class ProductRepository extends BaseRepository
         return ApiResponse::success($product, "Image uploaded successfully.", 200);
     }
 
-    protected function getPermittedIds(array $ids, int $userId): array
+    protected function getPermittedIds(array $ids, ?int $userId): array
     {
         // Get product IDs that user has activity logs for
         return DB::table('activity_logs')
@@ -136,7 +144,7 @@ class ProductRepository extends BaseRepository
             ->toArray();
     }
 
-    protected function canDelete(int $id, int $userId): bool
+    protected function canDelete(int $id, ?int $userId): bool
     {
         // Check if user has activity logs for this product
         return DB::table('activity_logs')

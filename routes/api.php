@@ -22,13 +22,9 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::patch('/products/{product}', [ProductController::class, 'update']);
     Route::delete('/products/{product}', [ProductController::class, 'destroy']);
     Route::post('/product/rating', [ProductController::class, 'rating']);
+    Route::post('products/{id}/image', [ProductController::class, 'uploadImage']);
+    Route::post('delete_products', [ProductController::class, 'deleteMultiple']);
 });
-
-// external api
-Route::get('/weather/{city}', [weatherApiController::class, 'show']);
-
-Route::post('products/{id}/image', [ProductController::class, 'uploadImage']);
-Route::post('delete_products', [ProductController::class, 'deleteMultiple']);
 
 Route::get('/enums', [EnumsController::class, 'getAllEnums']);
 
@@ -37,3 +33,6 @@ Route::post('/contact', [ContactController::class, 'send']);
 Route::post('/sms/send', [SmsController::class, 'send']);
 Route::get('/sms/history', [SmsController::class, 'history']);
 
+
+// external api
+Route::get('/weather/{city}', [weatherApiController::class, 'show']);
